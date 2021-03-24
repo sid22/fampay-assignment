@@ -10,5 +10,11 @@ COPY . /app
 
 WORKDIR src/
 
-ENTRYPOINT ["./entrypoint.sh"]
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
+RUN pip install --upgrade pip && pip install -r ../requirements.txt
+
+
+# ENTRYPOINT ["./entrypoint.sh"]
 # CMD ["python3", "manage.py", "runserver", "0.0.0.0:8001"]
