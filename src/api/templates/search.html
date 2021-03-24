@@ -1,0 +1,28 @@
+<html>
+    <body>
+            <h1>query web</h1>
+            <form action="{% url 'video_web'%}"" method="post">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <h4>q</h4><input type="text" name="q">
+                </li>
+                <li>
+                    <h4>limit</h4><input type="text" name="limit">
+                </li>
+                <li>
+                    <h4>page</h4><input type="text" name="page">
+                </li>
+            </ul>
+            <input type="submit" class="submit_btn btn label-success" value="submit" />
+            </form>
+            <hr>
+            <h3>Results</h3>
+            <ul>
+                {% for dt in data %}
+                <h4>{{ dt }}</h4>
+                {% endfor %}
+            </ul>
+
+    </body>
+</html>

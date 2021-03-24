@@ -14,6 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from api.views import VideoAPI, add_api_key
+from api.views import VideoAPI, add_api_key, VideoAPIWeb
 
-urlpatterns = [path("videos", VideoAPI.as_view()), path("key", add_api_key)]
+urlpatterns = [
+    path("api", VideoAPI.as_view(), name="video_api"),
+    path("web", VideoAPIWeb.as_view(), name="video_web"),
+    path("key", add_api_key),
+]

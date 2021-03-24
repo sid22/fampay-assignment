@@ -36,7 +36,11 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-INSTALLED_APPS = ["api.apps.ApiConfig", "django.contrib.postgres"]
+INSTALLED_APPS = [
+    "api.apps.ApiConfig",
+    "django.contrib.postgres",
+    "django.contrib.staticfiles",
+]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
