@@ -14,6 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from api.views import get_video_data
+from api.views import VideoAPI, add_api_key
 
-urlpatterns = [path("videos", get_video_data)]
+urlpatterns = [path("videos", VideoAPI.as_view()), path("key", add_api_key)]

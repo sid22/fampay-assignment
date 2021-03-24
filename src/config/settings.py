@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-INSTALLED_APPS = ["django.contrib.staticfiles", "api.apps.ApiConfig"]
+INSTALLED_APPS = ["api.apps.ApiConfig", "django.contrib.postgres"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -105,3 +105,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "cache_table",
+    }
+}
+
+## Youtube API conf
+SEARCH_KEY = os.environ.get("SEARCH_KEY", "football")
+YT_API_URL = os.environ.get(
+    "YT_API_URL", "https://youtube.googleapis.com/youtube/v3/search"
+)
+GOOGLE_KEY = os.environ.get("GOOGLE_KEY", None)
